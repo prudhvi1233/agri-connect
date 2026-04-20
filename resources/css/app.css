@@ -1,0 +1,323 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-gray-200 antialiased;
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+@layer components {
+  /* ============================================
+     PREMIUM GLASSMORPHISM SYSTEM
+     Based on theme1.png color palette
+     ============================================ */
+  
+  /* Glass Cards - Multiple Elevation Levels */
+  .glass-card {
+    @apply bg-black/50 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl;
+  }
+  
+  .glass-card-premium {
+    @apply bg-black/60 backdrop-blur-2xl border border-white/15 shadow-2xl rounded-2xl;
+  }
+  
+  .glass-card-elevated {
+    @apply bg-black/70 backdrop-blur-2xl border border-white/20 shadow-2xl rounded-3xl;
+  }
+  
+  .glass-card-subtle {
+    @apply bg-black/30 backdrop-blur-lg border border-white/5 shadow-xl rounded-xl;
+  }
+  
+  .glass-panel {
+    @apply bg-black/40 backdrop-blur-lg border border-white/5 shadow-xl rounded-xl;
+  }
+  
+  /* Glass Buttons */
+  .glass-button-primary {
+    @apply bg-gradient-to-r from-emerald-600 to-green-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-emerald-500/30 hover:scale-[1.02] transition-all duration-300 border border-emerald-500/30;
+  }
+  
+  .glass-button-secondary {
+    @apply bg-white/5 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:bg-white/10 hover:scale-[1.02] transition-all duration-300 border border-white/20;
+  }
+  
+  .glass-button-danger {
+    @apply bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-red-500/30 hover:scale-[1.02] transition-all duration-300 border border-red-500/30;
+  }
+  
+  /* Glass Inputs */
+  .glass-input {
+    @apply bg-white/5 border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 rounded-lg backdrop-blur-sm transition-all duration-300;
+  }
+  
+  .glass-input-premium {
+    @apply bg-black/40 border-b-2 border-white/30 text-white placeholder-white/40 focus:outline-none focus:border-emerald-400 px-4 py-3 rounded-none backdrop-blur-sm transition-all duration-300;
+  }
+  
+  /* Glass Select/Dropdown */
+  .glass-select {
+    @apply bg-white/5 border border-white/20 text-white focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 rounded-lg backdrop-blur-sm transition-all duration-300 appearance-none cursor-pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.75rem;
+  }
+  
+  /* Glass Tables */
+  .glass-table {
+    @apply w-full text-left border-collapse bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden;
+  }
+  
+  .glass-table th {
+    @apply py-4 px-6 font-semibold text-sm uppercase tracking-wider bg-black/60 text-emerald-400 border-b border-white/10;
+  }
+  
+  .glass-table td {
+    @apply py-4 px-6 text-gray-200 font-medium border-b border-white/5 transition duration-200;
+  }
+  
+  .glass-table tr:hover td {
+    @apply bg-white/5;
+  }
+  
+  /* Glass Badges */
+  .glass-badge {
+    @apply inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-sm;
+  }
+  
+  .glass-badge-success {
+    @apply glass-badge bg-green-500/20 text-green-300 border border-green-500/30;
+  }
+  
+  .glass-badge-warning {
+    @apply glass-badge bg-amber-500/20 text-amber-300 border border-amber-500/30;
+  }
+  
+  .glass-badge-danger {
+    @apply glass-badge bg-red-500/20 text-red-300 border border-red-500/30;
+  }
+  
+  .glass-badge-info {
+    @apply glass-badge bg-blue-500/20 text-blue-300 border border-blue-500/30;
+  }
+  
+  .glass-badge-purple {
+    @apply glass-badge bg-purple-500/20 text-purple-300 border border-purple-500/30;
+  }
+  
+  /* Glass Alerts */
+  .glass-alert {
+    @apply backdrop-blur-xl rounded-xl p-4 border-l-4 shadow-lg;
+  }
+  
+  .glass-alert-success {
+    @apply glass-alert bg-green-500/20 border-green-500 text-green-200;
+  }
+  
+  .glass-alert-danger {
+    @apply glass-alert bg-red-500/20 border-red-500 text-red-200;
+  }
+  
+  .glass-alert-warning {
+    @apply glass-alert bg-amber-500/20 border-amber-500 text-amber-200;
+  }
+  
+  .glass-alert-info {
+    @apply glass-alert bg-blue-500/20 border-blue-500 text-blue-200;
+  }
+  
+  /* Glass Dropdown */
+  .glass-dropdown {
+    @apply bg-black/70 backdrop-blur-2xl border border-white/15 shadow-2xl rounded-xl overflow-hidden;
+  }
+  
+  .glass-dropdown-item {
+    @apply px-4 py-3 text-gray-200 hover:bg-white/10 transition-all duration-200 cursor-pointer;
+  }
+  
+  /* Glass Modal */
+  .glass-modal {
+    @apply bg-black/70 backdrop-blur-2xl border border-white/20 shadow-2xl rounded-2xl;
+  }
+  
+  /* Utility Classes */
+  .text-gradient {
+    @apply bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent;
+  }
+  
+  .hover-glow {
+    @apply hover:shadow-emerald-500/20 hover:scale-[1.02] transition-all duration-300;
+  }
+  
+  /* Custom Scrollbar - Premium Dark Theme */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-black/30 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-white/20 rounded-full hover:bg-white/30 transition-colors;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-white/30;
+  }
+  
+  /* Firefox Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 0, 0, 0.3);
+  }
+  
+  /* ============================================
+     DARK MODE DATE PICKER STYLING
+     Native calendar popup dark theme
+     ============================================ */
+  
+  /* WebKit/Blink browsers (Chrome, Edge, Safari) */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(0.9);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  
+  input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+  }
+  
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(0.9);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  
+  input[type="time"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+  }
+  
+  input[type="month"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(0.9);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  
+  input[type="month"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+  }
+  
+  input[type="week"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(0.9);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  
+  input[type="week"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+  }
+  
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(0.9);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+  }
+  
+  /* Calendar popup styling for WebKit browsers */
+  ::-webkit-datetime-edit {
+    color: #e5e7eb;
+  }
+  
+  ::-webkit-datetime-edit-fields-wrapper {
+    color: #e5e7eb;
+  }
+  
+  ::-webkit-datetime-edit-text {
+    color: #9ca3af;
+  }
+  
+  ::-webkit-datetime-edit-month-field {
+    color: #e5e7eb;
+  }
+  
+  ::-webkit-datetime-edit-day-field {
+    color: #e5e7eb;
+  }
+  
+  ::-webkit-datetime-edit-year-field {
+    color: #e5e7eb;
+  }
+  
+  ::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  ::-webkit-clear-button {
+    display: none;
+  }
+}
+
+/* Global date picker calendar popup - Dark theme */
+/* This targets the calendar popup in Chromium browsers */
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="datetime-local"]:focus,
+input[type="month"]:focus {
+  @apply outline-none;
+}
+
+/* Force dark background for calendar popups in supported browsers */
+@supports (color-scheme: dark) {
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="week"] {
+    color-scheme: dark;
+  }
+}
+
+/* ============================================
+   AUTOFILL OVERRIDE FOR DARK THEME
+   Forces Chrome/Edge autofill to stay transparent
+   ============================================ */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    transition: background-color 5000s ease-in-out 0s !important;
+    -webkit-text-fill-color: white !important;
+    background-color: transparent !important;
+}
+
+/* Override default Tailwind Forms white background on focus */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+    background-color: transparent !important;
+}
