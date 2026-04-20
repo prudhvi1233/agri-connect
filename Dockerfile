@@ -36,18 +36,20 @@ COPY --from=frontend /app/public/build ./public/build
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Set proper permissions for Laravel storage and cache
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+# Set proper permissions for Laravel storage, cache, and database
+RUN touch /var/www/html/database/database.sqlite
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
 
 # Laravel setup caching
 RUN php artisan config:clear && \
     php artisan route:clear && \
     php artisan view:clear
 
-# Create a startup script to bind to the dynamic PORT assigned by Render
+# Create a startup script to bind to the dynamic PORT assigned by Render and run migrations
 RUN echo '#!/bin/bash\n\
 sed -i "s/Listen 80/Listen ${PORT:-80}/g" /etc/apache2/ports.conf\n\
 sed -i "s/:80/:${PORT:-80}/g" /etc/apache2/sites-available/000-default.conf\n\
+php artisan migrate --force\n\
 exec apache2-foreground\n\
 ' > /usr/local/bin/start.sh && chmod +x /usr/local/bin/start.sh
 
